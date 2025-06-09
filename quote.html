@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random qupte generator</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+        .quote {
+            display: inline-block;
+            
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        h1 {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .btn {
+            width: 100px;
+            height: 50px;
+            background-color: rgb(131, 131, 174);
+            color: black;
+            outline: none;
+            font-size: large;
+            
+
+        }
+        .texts{
+            font-size: 30px;
+            padding: 50px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="quote">
+        <h1>Quote Generator</h1>
+     
+            <p id="texts" class="texts">Click to generate new quote</p>
+            <p id="author" class="author"></p> 
+        <button class="btn" onclick="updateQuote()">New Quote</button>
+        <button id="resetbtn" onclick="resetButton()"> RESET</button>
+    </div>
+</div>
+<script>
+    const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Life is what happens when you’re busy making other plans.", author: "John Lennon" },
+            { text: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt" },
+            { text: "It does not matter how slowly you go as long as you do not stop.", author: "Confucius" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" }
+        ];
+    function updateQuote(){
+        let randomIndex = Math.floor(Math.random() * quotes.length);
+        document.getElementById("texts").innerText = quotes[randomIndex].text;
+        document.getElementById("author").innerText = "- " + quotes[randomIndex].author;
+    }
+
+function resetButton(){
+    document.getElementById("texts").innerText = "Click to generate new new new quote";
+    document.getElementById("author").innerText = "";
+}
+</script>
+</body>
+
+</html>
